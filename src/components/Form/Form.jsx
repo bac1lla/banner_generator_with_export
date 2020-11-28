@@ -4,42 +4,26 @@ import { SketchPicker } from 'react-color';
 import "./Form.css"
 
 export const Form = ({
-  resize,
-  setResize,
-  color,
   setColor,
-  image,
+  color,
   setImage,
-  text,
-  setText
+  image,
+  setText,
+  text
 }) => {
 
 
   return (
     <div className="form">
-      <TextField
-        label="Ширина"
-        type="number"
-        name="height"
-        // onChange={}
-        value={resize.width}
-      />
-      <TextField
-        label="Высота"
-        type="number"
-        name="height"
-        // onChange={}
-        value={resize.height}
-      />
       <SketchPicker
         color={color}
-        // onChangeComplete={e => setColor(e.)}
+        onChange={color => setColor(`rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`)}
       />
       <TextField
         label="Ссылка на картинку"
         type="text"
-        name="height"
-        // onChange={}
+        name="url"
+        onChange={(e) => setImage(e.target.value)}
         value={image}
       />
       <TextareaAutosize
@@ -48,9 +32,8 @@ export const Form = ({
         label="Введите текст банера"
         type="text"
         className=""
-        id=""
-        // onChange={}
-        // value={}
+        onChange={(e) => setText(e.target.value)}
+        value={text}
         placeholder="Введите текст"
       />
 
