@@ -9,11 +9,11 @@ export const Image = ({color, image = './', text}) => {
     canvas.width = 282;
     canvas.height = 376;
     context.fillStyle = color;
-    context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    context.fillRect(0, 0, 282, 376);
 
     context.fillStyle = 'white';
     context.font = '32px sans';
-    context.fillText(text, 20,170);
+    context.fillText(text, 10,180);
     // if (image) {
     //   let imageObj = new Image();
     //   imageObj.crossOrigin = '*';
