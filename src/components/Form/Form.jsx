@@ -4,7 +4,6 @@ import { SketchPicker } from 'react-color';
 import { GradientPicker } from 'react-linear-gradient-picker';
 import { AnglePicker } from 'react-linear-gradient-picker';
 import "./Form.css"
-import html2canvas from "html2canvas";
 
 export const Form = ({
   setColor,
@@ -20,11 +19,7 @@ export const Form = ({
 
 }) => {
 
-  // color = [
-  //   { offset: '0.00', color: 'rgb(238, 241, 11)' },
-  //   { offset: '0.49', color: 'rgb(215, 128, 37)' },
-  //   { offset: '1.00', color: 'rgb(126, 32, 207)' }
-  // ];
+
 
 
 
@@ -35,7 +30,7 @@ export const Form = ({
         color={color}
         onChange={color => setColor(`rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`)}
       />
-      {/*<AnglePicker angle={angle} setAngle={setAngle}/>*/}
+      <AnglePicker angle={angle} setAngle={setAngle}/>
       <TextField
         label="Ссылка на картинку"
         type="text"

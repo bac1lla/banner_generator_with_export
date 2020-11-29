@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React from "react";
 import "./Image.css"
 import html2canvas from "html2canvas";
 import Button from "@material-ui/core/Button";
@@ -8,27 +8,6 @@ import { saveAs } from 'file-saver';
 
 
 export const Image = ({color, image = './', text, url}) => {
-  // const canvasRef = useRef(null);
-  // useEffect(() => {
-  //   const canvas = canvasRef.current;
-  //   const context = canvas.getContext('2d');
-  //   canvas.width = 282;
-  //   canvas.height = 376;
-  //   context.fillStyle = color;
-  //   context.fillRect(0, 0, 282, 376);
-  //
-  //   context.fillStyle = 'white';
-  //   context.font = '32px sans';
-  //   context.fillText(text, 10,180);
-  //   // if (image) {
-  //   //   let imageObj = new Image();
-  //   //   imageObj.crossOrigin = '*';
-  //   //   imageObj.onload = () => {
-  //   //     context.drawImage(imageObj, 0, 0);
-  //     // };
-  //     // imageObj.src = image;
-  //   // }
-  // }, [color, image, text]);
 
   const size = {
     width: 282,
@@ -55,14 +34,6 @@ export const Image = ({color, image = './', text, url}) => {
 
   }
 
-
-  // html2canvas(document.querySelector("#banner")).then((canvas) => {
-  //   canvas.toBlob(function (blob) {
-  //     saveAs(blob, "banner.png");
-  //   });
-  // });
-
-
   function savePng() {
 
     html2canvas(document.querySelector("#banner")).then((canvas) => {
@@ -70,17 +41,28 @@ export const Image = ({color, image = './', text, url}) => {
         saveAs(blob, "banner.png");
       });
     })
-    return undefined;
   }
+
+  function copyHtml() {
+    navigator.clipboard.writeText(document.querySelector("#banner").innerHTML)
+      .then(() => {
+        alert('HTML copy')
+      })
+      .catch(err => {
+        alert('ERR')
+      });
+  }
+
 
   return (
     <div>
-
-      <a className="tdn" href={url} id="banner">
+      <div id="banner">
+      <a className="tdn" href={url}>
         <div className="banner" style={styles.banner}>
           <p style={styles.text}>{text}</p>
         </div>
       </a>
+      </div>
 
       <Button
         variant="contained"
@@ -101,6 +83,7 @@ export const Image = ({color, image = './', text, url}) => {
         variant="contained"
         color="default"
         startIcon={<FileCopyIcon/>}
+        onClick={copyHtml}
       >
         Copy HTML
       </Button>
