@@ -1,9 +1,16 @@
 .banner {
-    overflow: hidden;
     cursor: pointer;
-    margin: 25px;
+    /*margin: 25px;*/
     box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, .6);
-    /*width: 282px;*/
-    /*height: 376px;*/
     border-radius: 15px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+}
+p {
+    text-decoration: none;
+}
+
+.tdn {
+    text-decoration: none;
 }
