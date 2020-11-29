@@ -74,11 +74,6 @@ export const Image = ({color, image = './', text, url}) => {
   }
 
   return (
-    // <canvas
-    //   className="banner"
-    //   ref={canvasRef}
-    //   // onClick={() => (document.location.href = image)}
-    // />
     <div>
 
       <a className="tdn" href={url} id="banner">

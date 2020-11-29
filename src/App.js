@@ -20,7 +20,6 @@ function App() {
         text={text}
         url={url}
         angle={angle}
-        id="banner"
       />
 
 
