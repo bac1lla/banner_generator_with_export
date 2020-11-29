@@ -4,6 +4,7 @@ import { SketchPicker } from 'react-color';
 import { GradientPicker } from 'react-linear-gradient-picker';
 import { AnglePicker } from 'react-linear-gradient-picker';
 import "./Form.css"
+import html2canvas from "html2canvas";
 
 export const Form = ({
   setColor,
@@ -25,25 +26,18 @@ export const Form = ({
   //   { offset: '1.00', color: 'rgb(126, 32, 207)' }
   // ];
 
+
+
   return (
     <div className="form">
-      {/*<GradientPicker*/}
-      {/*  palette={color}*/}
-      {/*  // color={color}*/}
-      {/*  // onChange={color => setColor(`rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`)}*/}
-      {/*  onPalleteChange={setColor()}*/}
-      {/*>*/}
-      {/*  <SketchPicker*/}
-
-      {/*  />*/}
-      {/*</GradientPicker>*/}
       <SketchPicker
+        className="mb-10"
         color={color}
         onChange={color => setColor(`rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`)}
       />
-      <AnglePicker angle={angle} setAngle={setAngle}/>
+      {/*<AnglePicker angle={angle} setAngle={setAngle}/>*/}
       <TextField
-        label="Добавить картинку картинку"
+        label="Ссылка на картинку"
         type="text"
         name="url"
         onChange={(e) => setImage(e.target.value)}
@@ -57,10 +51,9 @@ export const Form = ({
         value={url}
       />
       <TextareaAutosize
-        rows={3}
+        rows={5}
         label="Введите текст банера"
         type="text"
-        className=""
         onChange={(e) => setText(e.target.value)}
         value={text}
         placeholder="Введите текст"

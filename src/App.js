@@ -11,8 +11,6 @@ function App() {
   const [angle, setAngle] = useState(25);
 
 
-
-
   return (
     <div className="App">
 
@@ -22,7 +20,10 @@ function App() {
         text={text}
         url={url}
         angle={angle}
+        id="banner"
       />
+
+
       <Form
         setColor={(e) => setColor(e)}
         color={color}
