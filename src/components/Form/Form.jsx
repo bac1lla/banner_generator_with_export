@@ -15,7 +15,9 @@ export const Form = ({
   setUrl,
   url,
   setAngle,
-  angle
+  angle,
+  // setSize,
+  // size
 
 }) => {
 
@@ -34,17 +36,27 @@ export const Form = ({
       <TextField
         label="Ссылка на картинку"
         type="text"
-        name="url"
         onChange={(e) => setImage(e.target.value)}
         value={image}
       />
       <TextField
         label="Ссылка на баннер"
         type="text"
-        name="url"
         onChange={(e) => setUrl(e.target.value)}
         value={url}
       />
+      {/*<TextField*/}
+      {/*  label="Ширина"*/}
+      {/*  type="number"*/}
+      {/*  onChange={(e) => setSize("width", e.target.value)}*/}
+      {/*  value={size.width}*/}
+      {/*/>*/}
+      {/*<TextField*/}
+      {/*  label="Высота"*/}
+      {/*  type="number"*/}
+      {/*  onChange={(e) => setSize("height", e.target.value)}*/}
+      {/*  value={size.height}*/}
+      {/*/>*/}
       <TextareaAutosize
         rows={5}
         label="Введите текст банера"

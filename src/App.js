@@ -9,17 +9,23 @@ function App() {
   const [text, setText] = useState(``);
   const [url, setUrl] = useState('');
   const [angle, setAngle] = useState(25);
+  // const [size, setSize] = useState({
+  //   width: 138,
+  //   height: 188,
+  // })
 
 
   return (
     <div className="App">
 
       <Image
+        // size={size}
         color={color}
         image={image}
         text={text}
         url={url}
         angle={angle}
+
       />
 
 
@@ -34,6 +40,8 @@ function App() {
         url={url}
         setAngle={(e) => setAngle(e)}
         angle={angle}
+        // setSize={(attribute, value) => setSize({ ...size, [attribute]: value })}
+        // size={size}
       />
 
 

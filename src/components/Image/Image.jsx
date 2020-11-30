@@ -4,31 +4,39 @@ import html2canvas from "html2canvas";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
-import { saveAs } from 'file-saver';
+import {saveAs} from 'file-saver';
 
 
-export const Image = ({color, image = './', text, url}) => {
+export const Image = ({/*size,*/ color, image = './', text, url}) => {
 
   const size = {
-    width: 282,
-    height: 376,
+    width: 138,
+    height: 188,
   }
 
   const styles = {
     banner: {
+      cursor: "pointer",
+      borderRadius: 15,
+      display: "flex",
+      alignItems: "flex-end",
+      textDecoration: "none",
+      backgroundRepeat: "no-repeat",
       width: size.width,
       height: size.height,
       backgroundColor: color,
       backgroundImage: `url(${image})`,
-
+      backgroundSize: "contain",
     },
     text: {
-      fontSize: 32,
+      fontSize: 18,
+      fontWeight: 600,
+      fontFamily: "Arial sans-serif",
       color: "white",
-      maxHeight: "5em",
+      maxHeight: "3.5em",
       maxWidth: size.width,
       overflow: "hidden",
-      padding: 25,
+      margin: "0 10px 15px",
       wordWrap: "break-word"
     },
 
@@ -53,15 +61,24 @@ export const Image = ({color, image = './', text, url}) => {
       });
   }
 
+  function copyJson() {
+    navigator.clipboard.writeText(JSON.stringify({color: color, image: image, text: text, url: url}))
+      .then(() => {
+        alert('JSON copy')
+      })
+      .catch(err => {
+        alert('ERR')
+      });
+  }
 
   return (
     <div>
       <div id="banner">
-      <a className="tdn" href={url}>
-        <div className="banner" style={styles.banner}>
-          <p style={styles.text}>{text}</p>
-        </div>
-      </a>
+        <a style={{textDecoration: "none"}} href={url}>
+          <div className="banner" style={styles.banner}>
+            <p style={styles.text}>{text}</p>
+          </div>
+        </a>
       </div>
 
       <Button
@@ -76,6 +93,7 @@ export const Image = ({color, image = './', text, url}) => {
         variant="contained"
         color="secondary"
         startIcon={<FileCopyIcon/>}
+        onClick={copyJson}
       >
         Copy JSON
       </Button>
