@@ -26,20 +26,26 @@ export const Form = ({
 
 
   return (
-    <div className="form">
+    <div className="form__component">
       <SketchPicker
-        className="mb-10"
+        className="mb-30"
         color={color}
         onChange={color => setColor(`rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`)}
       />
-      <AnglePicker angle={angle} setAngle={setAngle}/>
+      <AnglePicker
+        className="mb-30"
+        angle={angle}
+        setAngle={setAngle}
+      />
       <TextField
+        className="mb-30"
         label="Ссылка на картинку"
         type="text"
         onChange={(e) => setImage(e.target.value)}
         value={image}
       />
       <TextField
+        className="mb-30"
         label="Ссылка на баннер"
         type="text"
         onChange={(e) => setUrl(e.target.value)}
@@ -59,7 +65,9 @@ export const Form = ({
       {/*/>*/}
       <TextareaAutosize
         rows={5}
+        cols={28}
         label="Введите текст банера"
+        style={{marginTop: 30}}
         type="text"
         onChange={(e) => setText(e.target.value)}
         value={text}

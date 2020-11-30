@@ -1,7 +1,11 @@
-.form {
+.form__component {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-.mb-10 {
-    margin-bottom: 40px;
+
+.mb-30 {
+    margin-bottom: 30px;
 }
+
+

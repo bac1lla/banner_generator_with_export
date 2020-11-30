@@ -44,7 +44,6 @@ function App() {
         // size={size}
       />
 
-
     </div>
   );
 }

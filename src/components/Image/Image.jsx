@@ -1,10 +1,6 @@
 import React from "react";
 import "./Image.css"
-import html2canvas from "html2canvas";
-import Button from "@material-ui/core/Button";
-import SaveIcon from "@material-ui/icons/Save";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
-import {saveAs} from 'file-saver';
+import {Interface} from "../Interface/Interface";
 
 
 export const Image = ({/*size,*/ color, image = './', text, url}) => {
@@ -31,9 +27,9 @@ export const Image = ({/*size,*/ color, image = './', text, url}) => {
     text: {
       fontSize: 18,
       fontWeight: 600,
-      fontFamily: "Arial sans-serif",
+      font: "Roboto Arial sans-serif",
       color: "white",
-      maxHeight: "3.5em",
+      maxHeight: "4em",
       maxWidth: size.width,
       overflow: "hidden",
       margin: "0 10px 15px",
@@ -42,37 +38,9 @@ export const Image = ({/*size,*/ color, image = './', text, url}) => {
 
   }
 
-  function savePng() {
-
-    html2canvas(document.querySelector("#banner")).then((canvas) => {
-      canvas.toBlob(function (blob) {
-        saveAs(blob, "banner.png");
-      });
-    })
-  }
-
-  function copyHtml() {
-    navigator.clipboard.writeText(document.querySelector("#banner").innerHTML)
-      .then(() => {
-        alert('HTML copy')
-      })
-      .catch(err => {
-        alert('ERR')
-      });
-  }
-
-  function copyJson() {
-    navigator.clipboard.writeText(JSON.stringify({color: color, image: image, text: text, url: url}))
-      .then(() => {
-        alert('JSON copy')
-      })
-      .catch(err => {
-        alert('ERR')
-      });
-  }
 
   return (
-    <div>
+    <div className="image__component">
       <div id="banner">
         <a style={{textDecoration: "none"}} href={url}>
           <div className="banner" style={styles.banner}>
@@ -81,30 +49,13 @@ export const Image = ({/*size,*/ color, image = './', text, url}) => {
         </a>
       </div>
 
-      <Button
-        variant="contained"
-        color="primary"
-        startIcon={<SaveIcon/>}
-        onClick={savePng}
-      >
-        Save PNG
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        startIcon={<FileCopyIcon/>}
-        onClick={copyJson}
-      >
-        Copy JSON
-      </Button>
-      <Button
-        variant="contained"
-        color="default"
-        startIcon={<FileCopyIcon/>}
-        onClick={copyHtml}
-      >
-        Copy HTML
-      </Button>
+      <Interface
+        color={color}
+        image={image}
+        text={text}
+        url={url}
+      />
+
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.buttons_component {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
