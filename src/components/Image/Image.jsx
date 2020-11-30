@@ -3,7 +3,7 @@ import "./Image.css"
 import {Interface} from "../Interface/Interface";
 
 
-export const Image = ({/*size,*/ color, image = './', text, url}) => {
+export const Image = ({/*size,*/ colorsArr, image = './', text, url}) => {
 
   const size = {
     width: 138,
@@ -20,7 +20,7 @@ export const Image = ({/*size,*/ color, image = './', text, url}) => {
       backgroundRepeat: "no-repeat",
       width: size.width,
       height: size.height,
-      backgroundColor: color,
+      backgroundColor: colorsArr[0].color,
       backgroundImage: `url(${image})`,
       backgroundSize: "contain",
     },
@@ -40,6 +40,7 @@ export const Image = ({/*size,*/ color, image = './', text, url}) => {
 
 
   return (
+
     <div className="image__component">
       <div id="banner">
         <a style={{textDecoration: "none"}} href={url}>
@@ -48,9 +49,8 @@ export const Image = ({/*size,*/ color, image = './', text, url}) => {
           </div>
         </a>
       </div>
-
       <Interface
-        color={color}
+        color={colorsArr}
         image={image}
         text={text}
         url={url}

@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import './App.css';
 import {Form} from "./components/Form/Form";
 import {Image} from "./components/Image/Image"
+import {ColorPicker} from "./components/ColorPicker/ColorPicker"
+import {colors} from "@material-ui/core";
 
 function App() {
   const [color, setColor] = useState('#21c567');
@@ -9,6 +11,7 @@ function App() {
   const [text, setText] = useState(``);
   const [url, setUrl] = useState('');
   const [angle, setAngle] = useState(25);
+  const [colorsArr, setColorArr] = useState([{color: "#21c567"}])
   // const [size, setSize] = useState({
   //   width: 138,
   //   height: 188,
@@ -20,7 +23,7 @@ function App() {
 
       <Image
         // size={size}
-        color={color}
+        colorsArr={colorsArr}
         image={image}
         text={text}
         url={url}
@@ -30,8 +33,6 @@ function App() {
 
 
       <Form
-        setColor={(e) => setColor(e)}
-        color={color}
         setImage={(e) => setImage(e)}
         image={image}
         setText={(e) => setText(e)}
@@ -44,9 +45,20 @@ function App() {
         // size={size}
       />
 
+      <ColorPicker
+        // setColor={(e) => setColor(e)}
+        // color={color}
+        // setColorsArr={(e) => setColorArr([...colorsArr, e])}
+        setColorsArr={(e) => setColorArr(e)}
+        colorsArr={colorsArr}
+      />
+
     </div>
   );
 }
 
 export default App;
-
+//
+// "@material-ui/core": "^4.11.1",
+//   "@material-ui/icons": "^4.9.1",
+//   "react-color": "^2.19.3"

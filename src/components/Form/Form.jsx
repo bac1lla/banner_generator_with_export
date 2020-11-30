@@ -1,42 +1,32 @@
 import React from "react";
-import { TextField, TextareaAutosize } from "@material-ui/core";
-import { SketchPicker } from 'react-color';
-import { GradientPicker } from 'react-linear-gradient-picker';
-import { AnglePicker } from 'react-linear-gradient-picker';
+import {TextField, TextareaAutosize} from "@material-ui/core";
 import "./Form.css"
 
+
 export const Form = ({
-  setColor,
-  color,
-  setImage,
-  image,
-  setText,
-  text,
-  setUrl,
-  url,
-  setAngle,
-  angle,
-  // setSize,
-  // size
+                       setImage,
+                       image,
+                       setText,
+                       text,
+                       setUrl,
+                       url,
+                       setAngle,
+                       angle,
+                       // setSize,
+                       // size
 
-}) => {
-
+                     }) => {
 
 
 
 
   return (
     <div className="form__component">
-      <SketchPicker
-        className="mb-30"
-        color={color}
-        onChange={color => setColor(`rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`)}
-      />
-      <AnglePicker
-        className="mb-30"
-        angle={angle}
-        setAngle={setAngle}
-      />
+
+
+
+
+
       <TextField
         className="mb-30"
         label="Ссылка на картинку"
@@ -51,6 +41,7 @@ export const Form = ({
         onChange={(e) => setUrl(e.target.value)}
         value={url}
       />
+
       {/*<TextField*/}
       {/*  label="Ширина"*/}
       {/*  type="number"*/}
@@ -73,6 +64,7 @@ export const Form = ({
         value={text}
         placeholder="Введите текст"
       />
+
 
     </div>
   )
