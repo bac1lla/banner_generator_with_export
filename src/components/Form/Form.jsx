@@ -9,9 +9,7 @@ export const Form = ({
                        setText,
                        text,
                        setUrl,
-                       url,
-                       setAngle,
-                       angle,
+                       url
                        // setSize,
                        // size
 

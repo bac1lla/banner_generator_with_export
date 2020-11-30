@@ -3,7 +3,7 @@ import "./Image.css"
 import {Interface} from "../Interface/Interface";
 
 
-export const Image = ({/*size,*/ colorsArr, image = './', text, url}) => {
+export const Image = ({/*size,*/ colorsArr, image = './', text, url, angle}) => {
 
   const size = {
     width: 138,
@@ -49,6 +49,7 @@ export const Image = ({/*size,*/ colorsArr, image = './', text, url}) => {
           </div>
         </a>
       </div>
+
       <Interface
         color={colorsArr}
         image={image}

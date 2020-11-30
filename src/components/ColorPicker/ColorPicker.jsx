@@ -3,12 +3,15 @@ import {ChromePicker} from "react-color"
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add"
 import Delete from "@material-ui/icons/Delete"
+import {TextField} from "@material-ui/core";
 
 export const ColorPicker = ({
                               // setColor,
                               // color,
                               setColorsArr,
-                              colorsArr
+                              colorsArr,
+                              setAngle,
+                              angle
                             }) => {
 
 
@@ -61,12 +64,10 @@ export const ColorPicker = ({
 
   const handleRemoveClick = (index, arr) => {
 
-
     const list = [...colorsArr];
     list.splice(index, 1);
 
     setColorsArr(list)
-
 
   };
 
@@ -78,15 +79,26 @@ export const ColorPicker = ({
   return (
     <div>
 
-      <Fab
-        style={{marginBottom: 15}}
-        size="small"
-        color="primary"
-        aria-label="add"
-        onClick={() => handleAddClick()}
-      >
-        <AddIcon/>
-      </Fab>
+      <div style={{display: "flex"}}>
+        <Fab
+          style={{marginBottom: 15}}
+          size="small"
+          color="primary"
+          aria-label="add"
+          onClick={() => handleAddClick()}
+        >
+          <AddIcon/>
+        </Fab>
+
+        <TextField
+          className="mb-30"
+          label="Угол градиента"
+          type="number"
+          onChange={(e) => setAngle(e.target.value)}
+          value={angle}
+        />
+
+      </div>
 
       {colorsArr.map((elem, i, arr) => {
         return (

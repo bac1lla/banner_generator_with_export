@@ -10,7 +10,7 @@ function App() {
   const [image, setImage] = useState('');
   const [text, setText] = useState(``);
   const [url, setUrl] = useState('');
-  const [angle, setAngle] = useState(25);
+  const [angle, setAngle] = useState();
   const [colorsArr, setColorArr] = useState([{color: "#21c567"}])
   // const [size, setSize] = useState({
   //   width: 138,
@@ -39,8 +39,7 @@ function App() {
         text={text}
         setUrl={(e) => setUrl(e)}
         url={url}
-        setAngle={(e) => setAngle(e)}
-        angle={angle}
+
         // setSize={(attribute, value) => setSize({ ...size, [attribute]: value })}
         // size={size}
       />
@@ -51,6 +50,8 @@ function App() {
         // setColorsArr={(e) => setColorArr([...colorsArr, e])}
         setColorsArr={(e) => setColorArr(e)}
         colorsArr={colorsArr}
+        setAngle={(e) => setAngle(e)}
+        angle={angle}
       />
 
     </div>
