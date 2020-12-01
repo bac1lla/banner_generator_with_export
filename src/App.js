@@ -10,7 +10,7 @@ function App() {
   const [image, setImage] = useState('');
   const [text, setText] = useState(``);
   const [url, setUrl] = useState('');
-  const [angle, setAngle] = useState();
+  const [angle, setAngle] = useState(90);
   const [colorsArr, setColorArr] = useState([{color: "#21c567"}])
   // const [size, setSize] = useState({
   //   width: 138,
