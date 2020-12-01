@@ -3,21 +3,12 @@ import "./Image.css"
 import {Interface} from "../Interface/Interface";
 
 
-export const Image = ({/*size,*/ colorsArr, image, text, url, angle}) => {
-
-  // let backgroundColor = (colorsArr.length === 1) ? colorsArr[0].color : colorsArr.reduce( (str, el) => {
-  //   return str + el.color
-  // }, '')
-
-  // let backgroundColor = (colorsArr.length === 1) ? colorsArr[0].color : colorsArr.map( e => e.color).join(', ')
-  const backgroundColor = (colorsArr.length > 1 )
-    ? toLinearGradient(colorsArr.map( e => e.color).join(', '), angle)
-    : colorsArr.map( e => e.color).join(', ')
-
-
-  function toLinearGradient (color, angle) {
-    return `linear-gradient(${angle}deg, ${color})`
-  }
+export const Image = ({
+                        image,
+                        text,
+                        url,
+                        bgc
+                      }) => {
 
   const size = {
     width: 138,
@@ -30,14 +21,10 @@ export const Image = ({/*size,*/ colorsArr, image, text, url, angle}) => {
       borderRadius: 15,
       display: "flex",
       alignItems: "flex-end",
-      // textDecoration: "none",
       backgroundRepeat: "no-repeat",
       width: size.width,
       height: size.height,
-      // background: colorsArr[0].color,
-      background: backgroundColor,
-      // backgroundImage: `url(${image})`,
-      // backgroundSize: "contain",
+      background: bgc,
     },
     text: {
       fontSize: 18,
@@ -47,9 +34,12 @@ export const Image = ({/*size,*/ colorsArr, image, text, url, angle}) => {
       maxHeight: "4em",
       maxWidth: size.width,
       overflow: "hidden",
-      margin: "0 10px 15px",
+      padding: "0 10px 15px",
       wordWrap: "break-word",
       position: "absolute",
+      whiteSpace: "pre-wrap",
+      boxSizing: "border-box",
+
     },
   }
 
@@ -72,7 +62,7 @@ export const Image = ({/*size,*/ colorsArr, image, text, url, angle}) => {
       </div>
 
       <Interface
-        color={colorsArr}
+        color={bgc}
         image={image}
         text={text}
         url={url}
@@ -81,5 +71,4 @@ export const Image = ({/*size,*/ colorsArr, image, text, url, angle}) => {
     </div>
   );
 };
-
 

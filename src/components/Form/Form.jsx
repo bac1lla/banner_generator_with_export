@@ -1,5 +1,5 @@
 import React from "react";
-import {TextField, TextareaAutosize} from "@material-ui/core";
+import {TextareaAutosize, TextField} from "@material-ui/core";
 import "./Form.css"
 
 
@@ -10,20 +10,11 @@ export const Form = ({
                        text,
                        setUrl,
                        url
-                       // setSize,
-                       // size
-
                      }) => {
-
-
 
 
   return (
     <div className="form__component">
-
-
-
-
 
       <TextField
         className="mb-30"
@@ -39,19 +30,6 @@ export const Form = ({
         onChange={(e) => setUrl(e.target.value)}
         value={url}
       />
-
-      {/*<TextField*/}
-      {/*  label="Ширина"*/}
-      {/*  type="number"*/}
-      {/*  onChange={(e) => setSize("width", e.target.value)}*/}
-      {/*  value={size.width}*/}
-      {/*/>*/}
-      {/*<TextField*/}
-      {/*  label="Высота"*/}
-      {/*  type="number"*/}
-      {/*  onChange={(e) => setSize("height", e.target.value)}*/}
-      {/*  value={size.height}*/}
-      {/*/>*/}
       <TextareaAutosize
         rows={5}
         cols={28}
@@ -62,7 +40,6 @@ export const Form = ({
         value={text}
         placeholder="Введите текст"
       />
-
 
     </div>
   )

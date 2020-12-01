@@ -5,9 +5,11 @@ import SaveIcon from "@material-ui/icons/Save";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import {saveAs} from 'file-saver';
 import "./Interface.css"
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 
-export const Interface = ({/*size,*/ color, image = './', text, url}) => {
+export const Interface = ({color, image, text, url}) => {
 
 
   function savePng() {
@@ -22,7 +24,7 @@ export const Interface = ({/*size,*/ color, image = './', text, url}) => {
   function copyHtml() {
     navigator.clipboard.writeText(document.querySelector("#banner").innerHTML)
       .then(() => {
-        alert('HTML copy')
+        openSnackbar()
       })
       .catch(err => {
         alert('ERR')
@@ -32,11 +34,29 @@ export const Interface = ({/*size,*/ color, image = './', text, url}) => {
   function copyJson() {
     navigator.clipboard.writeText(JSON.stringify({color: color, image: image, text: text, url: url}))
       .then(() => {
-        alert('JSON copy')
+        openSnackbar()
       })
       .catch(err => {
         alert('ERR')
       });
+  }
+
+  const [open, setOpen] = React.useState(false);
+
+  const openSnackbar = () => {
+    setOpen(true);
+  };
+
+  const closeSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
 
   const mb15 = {
@@ -75,6 +95,13 @@ export const Interface = ({/*size,*/ color, image = './', text, url}) => {
       >
         Copy HTML
       </Button>
+
+
+      <Snackbar open={open} autoHideDuration={6000} onClose={closeSnackbar}>
+        <Alert onClose={closeSnackbar} severity="success">
+          Success!
+        </Alert>
+      </Snackbar>
     </div>
 
   );

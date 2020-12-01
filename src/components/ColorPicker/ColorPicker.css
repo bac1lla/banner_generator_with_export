@@ -1,0 +1,22 @@
+.colorPicker {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addColor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mb-30 {
+    margin-bottom: 15px;
+}
+
+.color {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
